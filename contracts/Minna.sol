@@ -4,31 +4,34 @@ import './Ownable.sol';
 contract Minna {
     
     address public owner;
-     modifier onlyOwner() {
-    require(msg.sender == owner);
-    _;
-  }
 
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+         _;
+    }
 
     //a struct to represent a team
     struct Team {
-
         bytes32 teamName;
         uint contributionTotal; //total points for a team
         mapping (uint => Member) TeamID; //each member registers with a TeamID
-        
     }
     
     //struc that has information for one member
     struct Member {
-
         address addressMember; //external publicn address of a particular member
         uint contributionPoints; //total points collected by member
     }
     
     Member[] public members;
     
-    //team[] arrayTeams; 
+    //team[] arrayTeams;
+
+    function Minna() {
+        owner = msg.sender;
+    }
+    
+    event Register(address _address, uint _contributionPoints);
     
     //function to register a member to a team
     // eg: david registers himself to the dev team 
@@ -38,13 +41,8 @@ contract Minna {
         //putting the information of a member inside a stuct - but why?
        Member memory newMember;
        newMember.contributionPoints = _contributionPoints;
- 
-
        members.push(newMember);
-       return true;
-
-
+       Register(msg.sender, msg.value);
+      // return true;
     }
-    
-    
 } //contract ends
