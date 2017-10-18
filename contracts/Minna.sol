@@ -1,4 +1,4 @@
-pragma solidity ^0.4.17;
+pragma solidity ^0.4.11;
 import './Ownable.sol';
 
 contract Minna {
@@ -36,13 +36,13 @@ contract Minna {
     //function to register a member to a team
     // eg: david registers himself to the dev team 
 
-    function register(address _addressMember, uint _contributionPoints) public onlyOwner {
+    function register(address _addressMember, uint _contributionPoints) payable public onlyOwner {
 
         //putting the information of a member inside a stuct - but why?
        Member memory newMember;
        newMember.contributionPoints = _contributionPoints;
        members.push(newMember);
-       Register(msg.sender, msg.value);
+       Register(msg.sender, _contributionPoints);
       // return true;
     }
 } //contract ends
