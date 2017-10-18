@@ -11,11 +11,11 @@ contract Minna {
 
 
     //a struct to represent a team
-    struct Meam {
+    struct Team {
 
         bytes32 teamName;
         uint contributionTotal; //total points for a team
-        mapping (uint => member) TeamID; //each member registers with a TeamID
+        mapping (uint => Member) TeamID; //each member registers with a TeamID
         
     }
     
