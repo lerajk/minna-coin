@@ -46,3 +46,5 @@ contract Minna {
       // return true;
     }
 } //contract ends
+
+//test git
