@@ -1,7 +1,9 @@
+
 pragma solidity ^0.4.11;
-import './Ownable.sol';
+//import './Ownable.sol';
 
 contract Minna {
+
     
     address public owner;
 
@@ -20,7 +22,7 @@ contract Minna {
     
     //struc that has information for one member
     struct Member {
-        //address addressMember; //external publicn address of a particular member -> won't need this
+        address addressMember; //external publicn address of a particular member -> won't need this
         uint contributionPoints; //total points collected by member
     }
     
@@ -45,7 +47,7 @@ contract Minna {
         //putting the information of a member inside a stuct - but why?
        Member memory newMember;
        newMember.contributionPoints = _contributionPoints;
-       //newMember.addressMember = _addressMember;
+       newMember.addressMember = _addressMember;
        members.push(newMember);
        Register(msg.sender, _contributionPoints);
       // return true;
@@ -61,10 +63,10 @@ contract Minna {
 
     }
 
+    //get members for a team 
+
    
 
 
 
 } //contract ends
-
-//test git
